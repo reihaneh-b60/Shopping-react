@@ -1,0 +1,23 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}   
+p,a, .fnt{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: lighter;
+}
+
+a {
+    text-decoration: solid;
+    color:darkblue;
+    
+}
+.box {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
