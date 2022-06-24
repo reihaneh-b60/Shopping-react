@@ -1,12 +1,26 @@
-html, body {
+html, body,#root {
     width: 100%;
     height: 100%;
+    font-family: 'vazir';
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+@font-face {
+    font-family:'vazir' ;
+    src: url('../font/Vazir-Black-FD-WOL.ttf');
+    src: url('../font/Vazir-Regular-FD-WOL.ttf');
+    /* src: url('../font/Vazir-Thin-FD-WOL.ttf'); */
+}
+
 .head_class {
-    height: 10%;
+    height: 300px;
+}
+.cart_class {
+    width: 20%;
+    min-width: 15rem;
+    height: auto;
 }
