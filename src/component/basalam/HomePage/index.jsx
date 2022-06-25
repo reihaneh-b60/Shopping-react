@@ -2,16 +2,18 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Basket from '../component/basket/basket';
 import Menu_1 from '../component/menu1';
 import Menu_2 from '../component/menu2';
 
 
 import './index.css'
+// let order_cnt=[]
 
 const HomePage = () => {
 
     const [productList, setProduct]=useState([]);
-    const [priceState, setprice]= useState(0)
+    const [basketList, setBasketList] = useState([])
      
 
     useEffect(()=>{
@@ -35,28 +37,29 @@ const HomePage = () => {
                     <Menu_1 image="https://statics.basalam.com/public/photo/explore/laKKy/05-30/cHthdbFAu26AsXGqgZtyvbUubp9kuxso9GydAU8qz8f23FulpA.png" text="پسته"/>
                     <Menu_1 image="https://statics.basalam.com/public/photo/explore/laKKy/05-30/cHthdbFAu26AsXGqgZtyvbUubp9kuxso9GydAU8qz8f23FulpA.png" text="مانتو"/>
                 </div>
-                <div className='d-flex ms-3'>
-                    <div  className='d-flex flex-row justify-content-center gap-3 flex-wrap'>
+                <div className='w-100 d-flex ms-3'>
+                    <div  className='w-75 d-flex flex-row justify-content-center gap-3 flex-wrap'>
                         {productList.map(item =>{
                             return (
                                 <div key={`productList-${item.id}`} className='cart_class gap-2' >
-                                    <Menu_2 cartimage={item.image}
+                                    <Menu_2 
+                                    productId = {item.id}
+                                    cartimage={item.image}
                                     carttext={item.title} 
                                     price={item.price}
                                     tag ={''} 
                                     category={item.category}
                                     count={item.rating.count}
                                     rate={item.rating.rate}
-                                    priceState={priceState}
-                                    setprice={setprice} />
+                                    basketList ={basketList}
+                                    setBasketList ={setBasketList}
+                                     />
                                 </div>
                             )
                         })}
                     </div>
-                    <div className='container h-100 border border-danger text-center'>
-                        <h3>Sabad kharid</h3>
-                        <p>مجموع فیمت خرید شما: </p>
-                        <p dir="ltr">{priceState}</p>
+                    <div className='w-25 container h-100 border border-danger text-center bg-white'>
+                        <Basket basketList ={basketList} setBasketList ={setBasketList}  />
                     </div>
                 </div>
             </main>

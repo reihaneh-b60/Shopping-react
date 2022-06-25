@@ -2,20 +2,37 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { AiOutlineStrikethrough } from "react-icons/ai";
 import {GrStar,GrBasket} from "react-icons/gr"
+// import Basket from './basket/basket';
 import './menuStyle.css'
-let sum_price=0;
+let count=0
 
 const Menu_2 = (props) => {
     const [tagState,setTag]=useState('');
+    
+    
 
     useEffect (() => {
         if (props.count < 200) {
             setTag('موجودی محدود')
         }
     },(props.count))
-function Additem(priceItem) {
-    sum_price += priceItem;
-    props.setprice(sum_price);
+function AddItem(mybasket) {
+    let flag= 0
+    console.log(`before: ${mybasket}`)
+    mybasket.map(item =>{ if (item.productId == id) {
+        console.log(`item id: ${item.producId}`)
+        flag = 1
+        item.order_count++;
+    }}
+    )
+    console.log(`flag ${flag}`)
+    if (flag ==0) {
+        console.log('add new')
+         props.setBasketList([...mybasket,
+        {productName:props.carttext,productPrice:props.price,
+         producId:props.productId, order_count:count+1}])
+    } 
+     console.log(`after :${props.basketList}`)
 
 }
 
@@ -36,7 +53,11 @@ function Additem(priceItem) {
             </div>
             <div className='d-flex justify-content-between'>
                 <div>               
-                    <Button type='button' className='Added fw-bold fs-5' onClick={()=> Additem(props.price)}> + </Button>
+                    <Button type='button' className='Added fw-bold fs-5' 
+                        onClick={()=>{ props.setBasketList([...props.basketList,
+                            {productName:props.carttext,productPrice:props.price,
+                             producId:props.productId, order_count:count+1}])}}> + </Button>
+                    
                 </div>
                 <div > {props.price} <AiOutlineStrikethrough/> </div>
             </div>
