@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { AiOutlineStrikethrough } from "react-icons/ai";
 import {GrStar,GrBasket} from "react-icons/gr"
-// import Basket from './basket/basket';
 import './menuStyle.css'
 let count=0
 
@@ -16,25 +15,28 @@ const Menu_2 = (props) => {
             setTag('موجودی محدود')
         }
     },(props.count))
-function AddItem(mybasket) {
-    let flag= 0
-    console.log(`before: ${mybasket}`)
-    mybasket.map(item =>{ if (item.productId == id) {
-        console.log(`item id: ${item.producId}`)
-        flag = 1
-        item.order_count++;
-    }}
-    )
-    console.log(`flag ${flag}`)
-    if (flag ==0) {
-        console.log('add new')
-         props.setBasketList([...mybasket,
-        {productName:props.carttext,productPrice:props.price,
-         producId:props.productId, order_count:count+1}])
-    } 
-     console.log(`after :${props.basketList}`)
 
-}
+    function AddItem() {
+        
+        let flag=0
+        props.basketList.map(item => {
+            if (item.producId ==  props.productId) {    
+                item.order_count++
+                flag=1
+            }
+        }) 
+        
+        if (flag == 0) 
+        {
+            props.setBasketList([...props.basketList,
+            {productName:props.carttext,productPrice:props.price,
+                producId:props.productId, order_count:props.order_count+1}])
+        }
+        else {
+            props.setBasketList([...props.basketList])
+        }
+        
+    }
 
     return (
         <div >
@@ -54,9 +56,7 @@ function AddItem(mybasket) {
             <div className='d-flex justify-content-between'>
                 <div>               
                     <Button type='button' className='Added fw-bold fs-5' 
-                        onClick={()=>{ props.setBasketList([...props.basketList,
-                            {productName:props.carttext,productPrice:props.price,
-                             producId:props.productId, order_count:count+1}])}}> + </Button>
+                        onClick={()=>AddItem() }> + </Button>
                     
                 </div>
                 <div > {props.price} <AiOutlineStrikethrough/> </div>
@@ -66,5 +66,4 @@ function AddItem(mybasket) {
 
     )
 }
-
 export default Menu_2;

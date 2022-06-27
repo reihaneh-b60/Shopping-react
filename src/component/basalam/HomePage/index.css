@@ -13,7 +13,6 @@ html, body,#root {
     font-family:'vazir' ;
     src: url('../font/Vazir-Black-FD-WOL.ttf');
     src: url('../font/Vazir-Regular-FD-WOL.ttf');
-    /* src: url('../font/Vazir-Thin-FD-WOL.ttf'); */
 }
 
 .head_class {
@@ -23,4 +22,9 @@ html, body,#root {
     width: 20%;
     min-width: 15rem;
     height: auto;
+}
+.basket_class {
+    height: 100%;
+    min-height: 500px;
+    
 }

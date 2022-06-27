@@ -1,0 +1,8 @@
+.bask_class {
+    min-height:400px;
+}
+.text_wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
