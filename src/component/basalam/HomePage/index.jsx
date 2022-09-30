@@ -6,26 +6,24 @@ import Basket from '../component/basket/basket';
 import Menu_1 from '../component/menu1';
 import Menu_2 from '../component/menu2';
 
-
 import './index.css'
 // let order_cnt=[]
 
-const HomePage = () => {
+    const HomePage = () => {
 
     const [productList, setProduct]=useState([]);
     const [basketList, setBasketList] = useState([])
-     
-
+        
     useEffect(()=>{
     //    setProduct(fakeData)
-     axios.get('http://fakestoreapi.com/products') 
-     .then((data)=> {
+        axios.get('http://fakestoreapi.com/products') 
+        .then((data)=> {
         setProduct(data.data)
-     })
-     .catch((err) => console.log(err))    
-       //setProduct(fakeData.filter(item => item.rating.count > 100))
+        })
+        .catch((err) => console.log(err))    
+        //setProduct(fakeData.filter(item => item.rating.count > 100))
     },[])
-    
+
     return (
         <div dir='rtl'>
             <header className="w-100 head_class border text-center">
@@ -54,7 +52,7 @@ const HomePage = () => {
                                     rate={item.rating.rate}
                                     basketList ={basketList}
                                     setBasketList ={setBasketList}
-                                     />
+                                        />
                                 </div>
                             )
                         })}
@@ -65,9 +63,7 @@ const HomePage = () => {
                 </div>
             </main>
         </div>
-
-
-    )
+)
 }
 
 export default HomePage;

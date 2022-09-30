@@ -13,22 +13,8 @@ function App() {
   
   return (
     <>
-     {/* <Routes>
-      <Route path='/'>
-        <Route index element={<Home/>} />
-        <Route path='product' >
-          <Route index element={<Err/>}/>
-          <Route path=':id' element={<Product/>}/>
-        </Route>
-      </Route>
-     </Routes> */}
-     <HomePage/>
+     <HomePage/> 
     </>
-
-    // <HomePage />
-    // <Login/>
-    // <Test/>
-
   )
 }
 
